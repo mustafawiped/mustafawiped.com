@@ -1,0 +1,76 @@
+---
+const today = new Date();
+---
+
+<footer class="site-footer">
+    <div class="footer-box">
+        <p class="copyright">
+            mustafawiped.com &copy; {today.getFullYear()} All rights reserved.
+        </p>
+
+        <p class="source-link-title">
+            Made with <span class="heart">❤️</span> by mustafawiped.
+            <a
+                href="https://github.com/mustafawiped/mustafawiped.com"
+                target="_blank"
+                class="source-link">Source Code</a
+            >
+        </p>
+    </div>
+
+    <style>
+        .site-footer {
+            padding: 4rem 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        .footer-box {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid #2a2a3e;
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .copyright {
+            color: #a0a0b0;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .source-link {
+            color: #ffff00;
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .source-link-title {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .source-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .source-link strong {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+    </style>
+</footer>

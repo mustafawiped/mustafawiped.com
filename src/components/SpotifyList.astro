@@ -1,0 +1,319 @@
+---
+/* Mock Data for Spotify Playlist */
+const playlistSongs = [
+    {
+        title: "Flame of Love",
+        artist: "TAEMIN",
+        image: "https://i.scdn.co/image/ab67616d00001e02eb8908f781bee94c1e569249",
+        link: "https://open.spotify.com/track/75ikYehzplYldfTiM69PZ8",
+    },
+    {
+        title: "This Is War",
+        artist: "MBLAQ",
+        image: "https://i.scdn.co/image/ab67616d00001e024fc53975278efe05a4a587a0",
+        link: "https://open.spotify.com/track/4PtuwgcMvho64Mhq8HiOZD",
+    },
+    {
+        title: "Luminary",
+        artist: "Joel Sunny",
+        image: "https://i.scdn.co/image/ab67616d00001e024a20baf44ef5f1c82afcdc3a",
+        link: "https://open.spotify.com/track/6DEQrAxmm8myanLuFTtFqt",
+    },
+    {
+        title: "Fiction",
+        artist: "Beast",
+        image: "https://i.scdn.co/image/ab67616d00001e02c89d6d3da4431db2eb42acb2",
+        link: "https://open.spotify.com/track/69QlYqNJeZG14R4an2aoJv",
+    },
+    {
+        title: "Come Play (from the series Arcane League of Legends)",
+        artist: "Stray Kids, Young Miko, Arcane, Tom Morello, League of Legends",
+        image: "https://i.scdn.co/image/ab67616d00001e02c804a75ef762b8b0837da1a9",
+        link: "https://open.spotify.com/track/37ozVDmL5b6NNVWFYgAlkz",
+    },
+    {
+        title: "Idea 22",
+        artist: "Gibran Alcocer",
+        image: "https://i.scdn.co/image/ab67616d00001e02ea8460e3b95df64cdd3c9692",
+        link: "https://open.spotify.com/track/1FCsK0oKWCtDOYRPYSrYgO",
+    },
+    {
+        title: "Empress Ki Main Theme",
+        artist: "Kim Jang Woo",
+        image: "https://i.scdn.co/image/ab67616d00001e02e3a0fc755ecee1dad2e26c9e",
+        link: "https://open.spotify.com/track/1JkVQvyBr270GQxEts7ID7",
+    },
+    {
+        title: "Still With You",
+        artist: "Jung Kook",
+        image: "https://i.scdn.co/image/ab67616d00001e02a7f42c375578df426b37638d",
+        link: "https://open.spotify.com/track/0eFMbKCRw8KByXyWBw8WO7",
+    },
+    {
+        title: "Summertime Sadness",
+        artist: "Lana Del Rey",
+        image: "https://i.scdn.co/image/ab67616d00001e02ebc8cfac8b586bc475b04918",
+        link: "https://open.spotify.com/track/3BJe4B8zGnqEdQPMvfVjuS",
+    },
+    {
+        title: "Another Love",
+        artist: "Tom Odell",
+        image: "https://i.scdn.co/image/ab67616d00001e021917a0f3f4152622a040913f",
+        link: "https://open.spotify.com/track/3JvKfv6T31zO0ini8iNItO",
+    },
+    {
+        title: "Soldier",
+        artist: "TAEMIN",
+        image: "https://i.scdn.co/image/ab67616d00001e02586377cdbf841e6f03da3e0c",
+        link: "https://open.spotify.com/track/4cS3TLpVjUfzeg8yaw1XM9",
+    },
+    {
+        title: "One Way Ticket",
+        artist: "Eruption",
+        image: "https://i.scdn.co/image/ab67616d00001e0216460173acaa68e9bc62fd98",
+        link: "https://open.spotify.com/track/68MSCSP7Y6PnzXcW1IlN7G",
+    },
+    {
+        title: "Bones (Prod. Czaer)",
+        artist: "TAEMIN",
+        image: "https://i.scdn.co/image/ab67616d00001e025481c28abe25ba5144d2b389",
+        link: "https://open.spotify.com/track/7jCZrWGVwr0UVNqypH9t60",
+    },
+    {
+        title: "Guess Who",
+        artist: "TAEMIN",
+        image: "https://i.scdn.co/image/ab67616d00001e02586377cdbf841e6f03da3e0c",
+        link: "https://open.spotify.com/track/71Krtb3pmkC7dRW6Wd7BOE",
+    },
+    {
+        title: "I'm Crying - Korean Version",
+        artist: "TAEMIN",
+        image: "https://i.scdn.co/image/ab67616d00001e024b8febf5c0b6f26b45f674c2",
+        link: "https://open.spotify.com/track/6ZQ1AY0VobIG8wF3Qseg5Q",
+    },
+];
+
+/* Reverse order: display newest (last in array) first */
+const displaySongs = [...playlistSongs].reverse();
+---
+
+<div class="spotify-section">
+    <div class="header">
+        <h2>Fav Songs 🎵</h2>
+    </div>
+
+    <div class="song-list" id="song-list-container">
+        {
+            displaySongs.map((song, index) => (
+                <a
+                    href={song.link}
+                    target="_blank"
+                    class="song-card"
+                    data-index={index}
+                >
+                    <div class="album-cover">
+                        <img
+                            src={song.image}
+                            alt={`${song.title} album cover`}
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="song-info">
+                        <span class="song-title">{song.title}</span>
+                        <span class="song-artist">{song.artist}</span>
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+
+    {
+        displaySongs.length > 10 && (
+            <div class="pagination-controls">
+                <button id="prev-btn" class="page-btn" disabled>
+                    ←
+                </button>
+                <button id="next-btn" class="page-btn">
+                    →
+                </button>
+            </div>
+        )
+    }
+</div>
+
+<script>
+    const ITEMS_PER_PAGE = 10;
+    const container = document.getElementById("song-list-container");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    if (container) {
+        const cards = Array.from(
+            container.querySelectorAll(".song-card"),
+        ) as HTMLElement[];
+        let currentPage = 0;
+        const totalPages = Math.ceil(cards.length / ITEMS_PER_PAGE);
+
+        function updateDisplay() {
+            const start = currentPage * ITEMS_PER_PAGE;
+            const end = start + ITEMS_PER_PAGE;
+
+            cards.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            if (prevBtn) {
+                (prevBtn as HTMLButtonElement).disabled = currentPage === 0;
+                prevBtn.style.opacity = currentPage === 0 ? "0.3" : "1";
+            }
+            if (nextBtn) {
+                (nextBtn as HTMLButtonElement).disabled =
+                    currentPage >= totalPages - 1;
+                nextBtn.style.opacity =
+                    currentPage >= totalPages - 1 ? "0.3" : "1";
+            }
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener("click", () => {
+                if (currentPage > 0) {
+                    currentPage--;
+                    updateDisplay();
+                }
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener("click", () => {
+                if (currentPage < totalPages - 1) {
+                    currentPage++;
+                    updateDisplay();
+                }
+            });
+        }
+
+        // Initialize
+        updateDisplay();
+    }
+</script>
+
+<style>
+    .spotify-section {
+        margin-bottom: 2rem;
+    }
+
+    .header {
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+        color: #a0a0b0;
+        margin: 0;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .song-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .song-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-decoration: none !important;
+        color: inherit !important;
+        transition:
+            transform 0.2s ease,
+            background 0.2s;
+        padding: 0.5rem;
+        border-radius: 8px;
+        border: 1px solid transparent;
+    }
+
+    .song-card:hover {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.05);
+        transform: translateX(4px);
+    }
+
+    .album-cover {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+        border-radius: 6px;
+        overflow: hidden;
+        background: #2a2a3e;
+    }
+
+    .album-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .song-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        overflow: hidden;
+    }
+
+    .song-title {
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .song-artist {
+        color: #a0a0b0;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .pagination-controls {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .page-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+            background 0.2s,
+            opacity 0.2s;
+        outline: none;
+    }
+
+    .page-btn:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .page-btn:disabled {
+        cursor: default;
+    }
+</style>

@@ -1,0 +1,150 @@
+---
+const shows = [
+    {
+        title: "Empress Ki",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGblcqJAPWzJXHq3kiG_6qbOFOW2TtaVnQrQ&s",
+    },
+    {
+        title: "INCEPTION",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt5V-5xCgJ4mawZuq1j7Q7ikxUzKH3n3T1cQ&s",
+    },
+    {
+        title: "Peaky Blinders",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp1BeukuWa20MOmFfgbT7XG0CdexI2yAFQhA&s",
+    },
+    {
+        title: "Gyeongseong Creature",
+        image: "https://m.media-amazon.com/images/M/MV5BMWI1N2I5ZGQtNTFkMC00MjIxLTgxNTQtZTgzNDU2YjhkN2JkXkEyXkFqcGc@._V1_.jpg",
+    },
+    {
+        title: "Oppenheimer",
+        image: "https://upload.wikimedia.org/wikipedia/tr/thumb/7/7f/Oppenheimer_%28film%29_afi%C5%9F.jpg/250px-Oppenheimer_%28film%29_afi%C5%9F.jpg",
+    },
+    {
+        title: "Suits",
+        image: "https://m.media-amazon.com/images/M/MV5BYmE4MmNjZjUtNTEyNy00NTZiLWE4NTktYjM2NjBhYzQ1N2IzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    },
+    {
+        title: "Game Of Thrones",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBXdb_hCn3D6nBO2UwfFhh3hs5pi03uPCs4w&s",
+    },
+    {
+        title: "Vandetta",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xjH9bjRrFh_9bfQDLrrGg7cyUNy24oa7fw&s",
+    },
+    {
+        title: "My Name",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr7g_I1hY8-sZpwGUkuDCcrGji9k42I4XWoA&s",
+    },
+    {
+        title: "Hymn of Death",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyqUDJAsHChgqFlT0-6_DlktxITiVU4JcWLA&s",
+    },
+    {
+        title: "Prens",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFag24GJXRcJDS6wmNA9wZgBIahl2OxStLpA&s",
+    },
+];
+---
+
+<div class="tv-section">
+    <h2>Fav Movies & Shows 📺</h2>
+
+    <div class="show-scroller">
+        {
+            shows.map((show) => (
+                <div class="show-card">
+                    <img
+                        src={show.image}
+                        alt={show.title}
+                        class="show-poster"
+                    />
+                    <div class="show-overlay">
+                        <span class="show-title">{show.title}</span>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    .tv-section {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #1a1a2e;
+    }
+
+    .tv-section h2 {
+        font-size: 1.2rem;
+        color: #fff;
+        margin-bottom: 2rem;
+        font-weight: 700;
+    }
+
+    .show-scroller {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        padding-bottom: 1.5rem;
+        /* Hide scrollbar for cleaner look but keep functionality */
+        scrollbar-width: thin;
+        scrollbar-color: #2a2a3e transparent;
+    }
+
+    .show-scroller::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .show-scroller::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .show-scroller::-webkit-scrollbar-thumb {
+        background-color: #2a2a3e;
+        border-radius: 20px;
+    }
+
+    .show-card {
+        flex: 0 0 140px;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        aspect-ratio: 2/3;
+        background: #151525;
+    }
+
+    .show-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .show-poster {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .show-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        padding: 2rem 0.75rem 0.75rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .show-card:hover .show-overlay {
+        opacity: 1;
+    }
+
+    .show-title {
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+</style>

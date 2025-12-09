@@ -1,0 +1,504 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Books from "../components/Books.astro";
+import Footer from "../components/Footer.astro";
+import SpotifyList from "../components/SpotifyList.astro";
+import TvShowList from "../components/TvShowList.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const projects = [
+	{
+		title: "Amazon Clone",
+		url: "https://github.com/mustafawiped/amazon_clone",
+		description:
+			"This project is a comprehensive full-stack and mobile application development initiative that replicates the core e-commerce functionalities of Amazon. It comprises a Next.js web application and a cross-platform Flutter mobile app, as well as a robust backend architecture that powers both platforms.",
+		tech: ["Next.js", "Tailwind", "PostgreSQL", "Flutter", "Express.js"],
+	},
+	{
+		title: "Project Synex",
+		url: "https://github.com/mustafawiped/project_synex",
+		description: "A custom software solution for complex problem solving.",
+		tech: [
+			"Flutter",
+			".NET Core Web API",
+			"MySQL",
+			"WebRTC",
+			"Firebase Notification",
+		],
+	},
+	{
+		title: "Akbel Restaurant",
+		url: "https://github.com/mustafawiped/akbelrestaurant",
+		description: "A website and management system for Akbel Restaurant.",
+		tech: ["Flutter", ".NET Core Web API"],
+	},
+	{
+		title: "Market App",
+		url: "https://github.com/mustafawiped/MarketApp",
+		description: "An application for managing market inventory and sales.",
+		tech: ["Kotlin", "Android Application", "XML", "Firebase"],
+	},
+	{
+		title: "Phone Directory",
+		url: "https://github.com/mustafawiped/PhoneDirectory",
+		description:
+			"A simple application to manage contacts and phone numbers.",
+		tech: ["C#", "Windows Form Application"],
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			@import "../styles/home.css";
+		</style>
+	</head>
+	<body>
+		<div class="layout-container" id="main-layout">
+			<div class="hero-section">
+				<div class="hero-content">
+					<h1 id="hero-title">This is mustafawiped.</h1>
+					<p class="bio">
+						Generally speaking, I enjoy analysing problems and
+						developing software solutions.
+					</p>
+					<p class="bio">
+						Currently, I am interested in how large-scale projects
+						are developed using microservice architectures. I also
+						believe that Taemin is the world's best artist.
+					</p>
+					<p class="bio">
+						I'm currently based in <span class="strikethrough"
+							>Turkey</span
+						> Türkiye, but also in general as well.
+					</p>
+
+					<div class="social-icons">
+						<a
+							href="https://github.com/mustafawiped"
+							target="_blank"
+							aria-label="Github"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path
+									d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+								></path>
+							</svg>
+						</a>
+						<a
+							href="https://twitter.com/mustafawiped"
+							target="_blank"
+							aria-label="Twitter"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path
+									d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+								></path>
+							</svg>
+						</a>
+						<a href="mailto:mustafawp@proton.me" aria-label="Email">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<circle cx="12" cy="12" r="4"></circle>
+								<path
+									d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"
+								></path>
+							</svg>
+						</a>
+						<a
+							href="https://instagram.com/mustafawiped"
+							target="_blank"
+							aria-label="Instagram"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<rect
+									x="2"
+									y="2"
+									width="20"
+									height="20"
+									rx="5"
+									ry="5"></rect>
+								<path
+									d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+								></path>
+								<line x1="17.5" y1="6.5" x2="17.51" y2="6.5"
+								></line>
+							</svg>
+						</a>
+					</div>
+
+					<div class="status-badges">
+						<span class="badge">Flutter</span>
+						<span class="badge">.NET Core Web API</span>
+						<span class="badge">Docker</span>
+						<span class="badge">Next.js</span>
+						<span class="badge">Astro</span>
+					</div>
+				</div>
+
+				<div class="hero-image-container">
+					<div class="arrow-container">
+						<span class="arrow-text">Definitely me IRL</span>
+						<svg
+							class="arrow-svg"
+							width="50"
+							height="50"
+							viewBox="0 0 50 50"
+							fill="none"
+						>
+							<path
+								d="M10,10 Q30,5 40,30"
+								stroke="#FFFF00"
+								stroke-width="2"
+								marker-end="url(#arrowhead)"></path>
+							<defs>
+								<marker
+									id="arrowhead"
+									markerWidth="10"
+									markerHeight="7"
+									refX="9"
+									refY="3.5"
+									orient="auto"
+								>
+									<polygon
+										points="0 0, 10 3.5, 0 7"
+										fill="#FFFF00"></polygon>
+								</marker>
+							</defs>
+						</svg>
+					</div>
+					<div class="image-card">
+						<!-- Placeholder if profile.png doesn't exist, but assuming it does from previous context -->
+						<img
+							src="/profile.jpg"
+							alt="Profile"
+							class="profile-pic"
+							onerror="this.style.display='none'"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<div class="content-grid">
+				<div class="projects-section">
+					<div
+						style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;"
+					>
+						<h2 style="margin: 0; border: none;">Projects 🛠️</h2>
+					</div>
+
+					<div class="projects-grid">
+						{
+							projects.map((project) => (
+								<div class="project-card">
+									<a
+										href={project.url}
+										target="_blank"
+										class="project-link"
+									>
+										<div class="card-content">
+											<div class="title-container">
+												<h3>{project.title}</h3>
+												<svg
+													class="underline-svg"
+													width="100%"
+													height="14"
+													viewBox="0 0 300 14"
+													preserveAspectRatio="none"
+												>
+													<path
+														class="underline-path underline-path-1"
+														d=""
+													/>
+													<path
+														class="underline-path underline-path-2"
+														d=""
+													/>
+												</svg>
+											</div>
+											<p class="project-description">
+												{project.description}
+											</p>
+											<div class="tech-stack">
+												{project.tech.map((t) => (
+													<span class="tech-tag">
+														{t}
+													</span>
+												))}
+											</div>
+										</div>
+									</a>
+								</div>
+							))
+						}
+					</div>
+
+					<script lang="ts">
+						// Generate a subtle wavy path like a hand-drawn pencil line
+						function generateHandDrawnPath(
+							/** @type {number} */ width,
+							/** @type {number} */ yBase,
+							/** @type {string} */ direction,
+						) {
+							const segments = 8;
+							const step = width / segments;
+							const jitter = 1.5;
+
+							let points = [];
+							for (let i = 0; i <= segments; i++) {
+								const x = i * step;
+								const y =
+									yBase +
+									(Math.random() * jitter * 2 - jitter);
+								points.push({ x, y });
+							}
+
+							if (direction === "rtl") {
+								points = points.reverse();
+							}
+
+							let d = `M ${points[0].x},${points[0].y}`;
+							for (let i = 1; i < points.length; i++) {
+								d += ` L ${points[i].x},${points[i].y}`;
+							}
+							return d;
+						}
+
+						const cards =
+							document.querySelectorAll(".project-card");
+						cards.forEach((card) => {
+							const path1 = /** @type {SVGPathElement | null} */ (
+								card.querySelector(".underline-path-1")
+							);
+							const path2 = /** @type {SVGPathElement | null} */ (
+								card.querySelector(".underline-path-2")
+							);
+
+							if (path1 && path2) {
+								[path1, path2].forEach((p) => {
+									const el = /** @type {HTMLElement} */ (p);
+									el.style.strokeDasharray = "320";
+									el.style.strokeDashoffset = "320";
+									el.style.opacity = "0";
+								});
+
+								card.addEventListener("mouseenter", () => {
+									path2.style.transition = "none";
+									path2.style.strokeDashoffset = "320";
+									path2.style.opacity = "0";
+
+									const newPath1 = generateHandDrawnPath(
+										300,
+										4,
+										"ltr",
+									);
+									path1.setAttribute("d", newPath1);
+									path1.style.opacity = "1";
+
+									path1.style.transition = "none";
+									path1.style.strokeDashoffset = "320";
+									path1.getBoundingClientRect();
+									path1.style.transition =
+										"stroke-dashoffset 0.35s ease-out";
+									path1.style.strokeDashoffset = "0";
+
+									setTimeout(() => {
+										if (card.matches(":hover")) {
+											const newPath2 =
+												generateHandDrawnPath(
+													300,
+													9,
+													"rtl",
+												);
+											path2.setAttribute("d", newPath2);
+											path2.style.opacity = "1";
+
+											path2.style.transition = "none";
+											path2.style.strokeDashoffset =
+												"-320";
+											path2.getBoundingClientRect();
+											path2.style.transition =
+												"stroke-dashoffset 0.35s ease-out";
+											path2.style.strokeDashoffset = "0";
+										}
+									}, 350);
+								});
+
+								card.addEventListener("mouseleave", () => {
+									path1.style.transition =
+										"opacity 0.2s ease-out";
+									path2.style.transition =
+										"opacity 0.2s ease-out";
+									path1.style.opacity = "0";
+									path2.style.opacity = "0";
+
+									setTimeout(() => {
+										path1.style.strokeDashoffset = "320";
+										path2.style.strokeDashoffset = "320";
+									}, 200);
+								});
+							}
+						});
+					</script>
+
+					<style>
+						.projects-grid {
+							display: grid;
+							grid-template-columns: 1fr;
+							gap: 1rem;
+							margin-top: 1.5rem;
+						}
+
+						.project-card {
+							position: relative;
+							background: rgba(255, 255, 255, 0.03);
+							border: 1px solid rgba(255, 255, 255, 0.1);
+							border-radius: 12px;
+							transition:
+								transform 0.2s ease,
+								background 0.2s ease,
+								border-color 0.2s ease;
+							overflow: hidden;
+						}
+
+						.project-card:hover {
+							transform: translateY(-2px);
+							background: rgba(255, 255, 255, 0.06);
+							border-color: rgba(255, 255, 255, 0.2);
+						}
+
+						.project-link {
+							display: block;
+							padding: 1.25rem;
+							padding-bottom: 1.5rem;
+							text-decoration: none;
+							color: inherit;
+						}
+
+						.card-content {
+							display: flex;
+							flex-direction: column;
+						}
+
+						.title-container {
+							position: relative;
+							display: inline-block;
+							width: fit-content;
+							margin-bottom: 0.5rem;
+						}
+
+						.title-container h3 {
+							margin: 0;
+							font-size: 1.1rem;
+							font-weight: 600;
+							display: block;
+							color: #ffffff;
+						}
+
+						.underline-svg {
+							position: absolute;
+							bottom: -6px;
+							left: 0;
+							width: 100%;
+							height: 14px;
+							pointer-events: none;
+							overflow: visible;
+						}
+
+						.underline-path {
+							fill: none;
+							stroke: #ffd700;
+							stroke-width: 2px;
+							stroke-linecap: round;
+							stroke-linejoin: round;
+						}
+
+						.project-description {
+							color: #a1a1aa;
+							font-size: 0.9rem;
+							line-height: 1.5;
+							margin-bottom: 1rem; /* Reduced margin */
+							flex-grow: 1;
+						}
+
+						.tech-stack {
+							display: flex;
+							flex-wrap: wrap;
+							gap: 0.5rem;
+							margin-top: auto;
+							padding-bottom: 0.25rem;
+						}
+
+						.tech-tag {
+							font-size: 0.7rem;
+							font-weight: 500;
+							padding: 0.25rem 0.6rem; /* Smaller tags */
+							background: rgba(255, 255, 255, 0.08);
+							border-radius: 6px; /* Slightly less rounded for "box" feel, or keep 999px? Keeping consistent but smaller */
+							border-radius: 999px;
+							color: #ececec;
+							border: 1px solid rgba(255, 255, 255, 0.1);
+							transition: background 0.2s ease;
+						}
+
+						.project-card:hover .tech-tag {
+							background: rgba(255, 255, 255, 0.15);
+						}
+					</style>
+				</div>
+
+				<!-- Sidebar -->
+				<aside>
+					<SpotifyList />
+				</aside>
+			</div>
+			<TvShowList />
+
+			<Books />
+
+			<Footer />
+		</div>
+	</body>
+</html>

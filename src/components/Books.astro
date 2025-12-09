@@ -1,0 +1,130 @@
+---
+const book = [
+    {
+        title: "Karamazov Kardeşler",
+        image: "https://img.kitapyurdu.com/v1/getImage/fn:2152305/wh:true/miw:200/mih:200",
+    },
+    {
+        title: "Dönüşüm",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU-KOHCRyEtc-10QU5GLDqoVsWlg2WoGS3HQ&s",
+    },
+    {
+        title: "Kürk Mantolu Madonna",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTHFcafXrDQ0legIV3_q8_xKtrRDgHbWw3vQ&s",
+    },
+    {
+        title: "Martin Eden",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6NBwmADKgF3lIlURHQmRkTtPVtNzGdM319Q&s",
+    },
+    {
+        title: "Yeraltından Notlar",
+        image: "https://img.iskultur.com.tr/webp/2008/07/yeraltindan-notlar-3.jpg",
+    },
+    {
+        title: "Hamlet",
+        image: "https://cdn.kobo.com/book-images/5fc4252b-1c4f-40ef-9975-22982c94f12c/1200/1200/False/hamlet-prince-of-denmark-23.jpg",
+    },
+];
+---
+
+<div class="book-section">
+    <h2>Reading List 📚</h2>
+
+    <div class="book-scroller">
+        {
+            book.map((book) => (
+                <div class="book-card">
+                    <img
+                        src={book.image}
+                        alt={book.title}
+                        class="book-poster"
+                    />
+                    <div class="book-overlay">
+                        <span class="book-title">{book.title}</span>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    .book-section {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #1a1a2e;
+    }
+
+    .book-section h2 {
+        font-size: 1.2rem;
+        color: #fff;
+        margin-bottom: 2rem;
+        font-weight: 700;
+    }
+
+    .book-scroller {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        padding-bottom: 1.5rem;
+        /* Hide scrollbar for cleaner look but keep functionality */
+        scrollbar-width: thin;
+        scrollbar-color: #2a2a3e transparent;
+    }
+
+    .book-scroller::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .book-scroller::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .book-scroller::-webkit-scrollbar-thumb {
+        background-color: #2a2a3e;
+        border-radius: 20px;
+    }
+
+    .book-card {
+        flex: 0 0 140px;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        aspect-ratio: 2/3;
+        background: #151525;
+    }
+
+    .book-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .book-poster {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .book-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        padding: 2rem 0.75rem 0.75rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .book-card:hover .book-overlay {
+        opacity: 1;
+    }
+
+    .book-title {
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+</style>
